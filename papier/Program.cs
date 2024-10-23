@@ -7,6 +7,8 @@
 
     static void gra()
     {
+        Ponownagra:
+
         int wygranagracza = 0;
         int wygranarobot = 0;
 
@@ -74,15 +76,21 @@
                 wygranagracza++;
                 Console.WriteLine($"Wynik = Komputer: {wygranarobot} Gracz: {wygranagracza}");
             }
+        }
+        if (wygranagracza == wymaganawygrane)
+        {
+            Console.WriteLine("Gracz wygrał");
+        }
+        else
+        {
+            Console.WriteLine("Robot wygrał");
+        }
 
-            if(wygranagracza == wymaganawygrane)
-            {
-                Console.WriteLine("Gracz wygrał");
-            }
-            else
-            {
-                Console.WriteLine("Robot wygrał");
-            }
+        Console.WriteLine("Czy chcesz zagrać ponownie");
+        string odp = Console.ReadLine();
+        if (odp == "tak")
+        {
+            goto Ponownagra;
         }
     }
 }                                                                                                           
