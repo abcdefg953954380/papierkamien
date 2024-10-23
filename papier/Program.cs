@@ -7,58 +7,82 @@
 
     static void gra()
     {
-        Random rnd = new Random();
+        int wygranagracza = 0;
+        int wygranarobot = 0;
 
-        int robot = rnd.Next(3);
+        Console.WriteLine("Do ilu punktów");
+        int wymaganawygrane = int.Parse(Console.ReadLine());
 
-        Console.WriteLine("Wybierz swój wybór - kamień (k), papier(p), czy nożyce (n)");
-        string wybor = Console.ReadLine();
-
-        int wyborgracz = 4;
-
-        switch(wybor)
+        while (wygranarobot != wymaganawygrane && wygranagracza != wymaganawygrane)
         {
-            case "k":
-                {
-                    wyborgracz = 0;
-                    break;
-                }
 
-            case "p":
-                {
-                    wyborgracz = 1;
-                    break;
-                }
+            Console.WriteLine("Wybierz swój wybór - kamień (k), papier(p), czy nożyce (n)");
+            string wybor = Console.ReadLine();
 
-            case "n":
-                {
-                    wyborgracz = 2;
-                    break;
-                }
-            default:
-                {
-                    Console.WriteLine("Zły wybór");
-                    break;
-                }
-        }
+            int wyborgracz = 4;
 
-        if(wyborgracz == robot)
-        {
-            Console.WriteLine($"Gracz : {wyborgracz}");
-            Console.WriteLine($"Robot : {robot}");
-            Console.WriteLine("Remis");
-        }
-        else if((wyborgracz == 0 && robot == 1) || (wyborgracz == 1 && robot == 2) || (wyborgracz == 2 && robot == 0))
-        {
-            Console.WriteLine($"Gracz : {wyborgracz}");
-            Console.WriteLine($"Robot : {robot}");
-            Console.WriteLine("Komputer wygrywa");
-        }
-        else
-        {
-            Console.WriteLine($"Gracz : {wyborgracz}");
-            Console.WriteLine($"Robot : {robot}");
-            Console.WriteLine("Gracz wygrywa"); 
+            Random rnd = new Random();
+            int robot = rnd.Next(3);
+
+
+            switch (wybor)
+            {
+                case "k":
+                    {
+                        wyborgracz = 0;
+                        break;
+                    }
+
+                case "p":
+                    {
+                        wyborgracz = 1;
+                        break;
+                    }
+
+                case "n":
+                    {
+                        wyborgracz = 2;
+                        break;
+                    }
+                default:
+                    {
+                        Console.WriteLine("Zły wybór");
+                        break;
+                    }
+            }
+
+            if (wyborgracz == robot)
+            {
+                Console.WriteLine($"Gracz : {wyborgracz}");
+                Console.WriteLine($"Robot : {robot}");
+                Console.WriteLine("Remis");
+                Console.WriteLine($"Wynik = Komputer: {wygranarobot} Gracz: {wygranagracza}");
+            }
+            else if ((wyborgracz == 0 && robot == 1) || (wyborgracz == 1 && robot == 2) || (wyborgracz == 2 && robot == 0))
+            {
+                Console.WriteLine($"Gracz : {wyborgracz}");
+                Console.WriteLine($"Robot : {robot}");
+                Console.WriteLine("Komputer wygrywa");
+                wygranarobot++;
+                Console.WriteLine($"Wynik = Komputer: {wygranarobot} Gracz: {wygranagracza}");
+            }
+            else
+            {
+                Console.WriteLine($"Gracz : {wyborgracz}");
+                Console.WriteLine($"Robot : {robot}");
+                Console.WriteLine("Gracz wygrywa");
+                wygranagracza++;
+                Console.WriteLine($"Wynik = Komputer: {wygranarobot} Gracz: {wygranagracza}");
+            }
+
+            if(wygranagracza == wymaganawygrane)
+            {
+                Console.WriteLine("Gracz wygrał");
+            }
+            else
+            {
+                Console.WriteLine("Robot wygrał");
+            }
         }
     }
 }                                                                                                           
