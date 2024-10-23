@@ -15,15 +15,15 @@
 
         while (wygranarobot != wymaganawygrane && wygranagracza != wymaganawygrane)
         {
+            Random rnd = new Random();
+            int robot = rnd.Next(3);
+
+            Graczwybor:
 
             Console.WriteLine("Wybierz swój wybór - kamień (k), papier(p), czy nożyce (n)");
             string wybor = Console.ReadLine();
 
             int wyborgracz = 4;
-
-            Random rnd = new Random();
-            int robot = rnd.Next(3);
-
 
             switch (wybor)
             {
@@ -47,7 +47,7 @@
                 default:
                     {
                         Console.WriteLine("Zły wybór");
-                        break;
+                        goto Graczwybor;
                     }
             }
 
